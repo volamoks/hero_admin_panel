@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { heroSubmit } from '../heroesList/heroesSlice';
+
 import { useHttp } from '../../hooks/http.hook';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { useCreateHeroMutation } from '../../api/apiSlice';
 
 const HeroesAddForm = () => {
@@ -19,7 +19,7 @@ const HeroesAddForm = () => {
         e.preventDefault();
 
         const newHero = {
-            id: uuidv4(),
+            id: nanoid(),
             name: name,
             description: descr,
             element: elem,
